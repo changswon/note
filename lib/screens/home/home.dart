@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
 
-//SDK 버전 업그레이드 커밋!!!
+//커밋되는건가.
 
   @override
   Widget build(BuildContext context) {
