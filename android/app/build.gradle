@@ -14,7 +14,9 @@ if (localPropertiesFile.exists()) {
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
 if (flutterVersionCode == null) {
+
     flutterVersionCode = '9'
+
 }
 
 def flutterVersionName = localProperties.getProperty('flutter.versionName')
@@ -24,7 +26,9 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.gana.palgaknote"
+
     compileSdkVersion 34
+    compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -42,9 +46,17 @@ android {
 
     defaultConfig {
         multiDexEnabled true
+
         applicationId "com.gana.palgaknote"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion 34
+
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.gana.palgaknote"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -59,6 +71,9 @@ android {
 
     buildTypes {
         release {
+
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.release
         }
     }
